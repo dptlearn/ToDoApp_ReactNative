@@ -26,7 +26,7 @@ export default function Index() {
 	const [modalVisible, setModalVisible] = useState(false);
 	const [textInputChange, setTextInputChange] = useState('');
 	const [numOfToDo, setNumOfToDo] = useState(1);
-	const [colorTag, setColorTag] = useState(null);
+	const [colorTag, setColorTag] = useState('red');
 	
 	
 	const addToDo = (newToDo, newColor) => {
@@ -39,6 +39,15 @@ export default function Index() {
 			let arrayLength = toDoList.length;
 		
 			let newId = arrayLength + 1;
+			
+			let idExist = toDoList.some(item => item.id === newId);
+			
+			while(idExist)
+			{
+				newId += 1;
+				idExist = toDoList.some(item => item.id === newId);
+			}
+			
 			let newArray = {id: newId, name: newToDo, color: newColor}
 			
 			const updatedList = [newArray, ...toDoList];
@@ -47,7 +56,7 @@ export default function Index() {
 			saveToDo(updatedList);
 			setModalVisible(false);
 			setTextInputChange('');
-			setColorTag(null);
+			setColorTag('red');
 			setNumOfToDo(updatedList.length);
 		}
 		
