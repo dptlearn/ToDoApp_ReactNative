@@ -159,8 +159,8 @@ export default function Index() {
 								editable
 							/>
 							{ /* Color Selection Container */ }
-							<View style={{marginTop: 15, justifyContent: 'flex-start'}}>
-								<Text>Tags: </Text>
+							<View style={{marginTop: 30, justifyContent: 'flex-start', marginBottom: 15}}>
+								<Text style={[ theme === 'dark'? styles.darkTextContainer : styles.lightTextContainer, {fontWeight: 'bold'} ]}>Tags: </Text>
 							</View>
 							
 							<View style={{flexDirection: 'row', marginTop: 15, alignItems: 'center'}}>
@@ -198,7 +198,7 @@ export default function Index() {
 							</View>
 							
 								
-							<View style={{marginTop: 30, flexDirection: 'row'}}>
+							<View style={{marginTop: 50, flexDirection: 'row'}}>
 								<CustomButton 
 									name={'Cancel'}
 									handlePress={() => setModalVisible(false)}
